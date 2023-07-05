@@ -1,0 +1,37 @@
+{
+  "name": "mern-blog",
+  "version": "1.0.0",
+  "description": "Full stack MERN Blog",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"mpm run server\" \"npm run client\"",
+    "build": "npm install & npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imaginative07/mern-blog.git"
+  },
+  "keywords": [
+    "MERN Blog",
+    "Full Stack Blog Application",
+    "ReactJS Application",
+    "NodeJS Application"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imaginative07/mern-blog/issues"
+  },
+  "homepage": "https://github.com/imaginative07/mern-blog#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "concurrently": "^8.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "parser": "^0.1.4"
+  }
+}
