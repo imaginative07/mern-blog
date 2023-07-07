@@ -3,7 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import ConnectDB from './config/db.js';
-import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import { notFound, errorHandler } from './middleware/customerror.js';
 
 // Load env variables
 dotenv.config();
@@ -16,6 +16,13 @@ const port = process.env.PORT || 5000;
 
 // Initiate express 
 const app = express();
+
+// Body parser middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Cookie parser middleware
+app.use(cookieParser());
 
 // logging middleware
 var num = 0;
@@ -31,6 +38,9 @@ app.use(function (req, res, next) {
 app.use('/', (req, res) => {
     res.send('Welcome to MERN Blog');
 });
+
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
