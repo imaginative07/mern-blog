@@ -1,6 +1,4 @@
 import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import ConnectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/customerror.js';
