@@ -4,6 +4,9 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import ConnectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/customerror.js';
+import blogRoutes from './routes/blog.js';
+import userRoutes from './routes/user.js';
+import cookieParser from 'cookie-parser';
 
 // Load env variables
 dotenv.config();
@@ -34,6 +37,9 @@ app.use(function (req, res, next) {
     console.log('\n- - - - - - - - - - - -\n'+(++num) + ". IP " + ip + " " + method + " " + url+'\n- - - - - - - - - - - -\n');
     next();
 });
+
+app.use('/api/blog', blogRoutes);
+app.use('/api/user', userRoutes);
 
 app.use('/', (req, res) => {
     res.send('Welcome to MERN Blog');
