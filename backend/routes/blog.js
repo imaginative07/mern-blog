@@ -1,19 +1,20 @@
-import Express from "express";
-import Blog from '../models/blog';
-const router = Express.Router();
+import express from "express";
+import Blog from '../models/blogModel.js';
+import asyncHandler from '../middleware/asyncHandler.js';
+const router = express.Router();
 
 // @desc    Get all blog posts
 // @route   GET /api/blog
 // @access  Public
-router.get("/", (req, res) => {
-    const blog = Blog.find({});
-    res.status(200).json(blog);
+router.get("/", async (req, res) => {
+    const blogs = await Blog.find({});
+    res.status(200).json(blogs);
 });
 
 // @desc    Create a blog post
 // @route   POST /api/blog
 // @access  Private / Admin
-router.post("/", protectRoute, admin, asyncHandler( async (req, res) => {
+router.post("/", asyncHandler( async (req, res) => {
     
     const { title, content, category, user, image, readtime, pageVisibility } = req.body;
     
@@ -36,15 +37,15 @@ router.post("/", protectRoute, admin, asyncHandler( async (req, res) => {
 // @desc    Get blog by id
 // @route   GET /api/blog/:id
 // @access  Public
-router.get('/:id', protectRoute, admin, asyncHandler( async (req, res) => {
+router.get('/:id', asyncHandler( async (req, res) => {
     
-    const order = await Order.findById(req.params.id).populate('user', 'name email');
+    const blog = await Blog.findById(req.params.id).populate('user', 'name email');
 
-    if(order) {
-        res.status(200).json(order);
+    if(blog) {
+        res.status(200).json(blog);
     } else {
         res.status(404);
-        throw new Error('Order not found');
+        throw new Error('Blog not found');
     }
     
 }));

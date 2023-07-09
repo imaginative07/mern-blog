@@ -1,6 +1,6 @@
 import express from 'express';
-import asyncHandler from '../middleware/asyncHandler';
-import User from '../models/User';
+import asyncHandler from '../middleware/asyncHandler.js';
+import User from '../models/userModel.js';
 import jwt from 'jsonwebtoken';
 
 const router = express.Router();
@@ -76,3 +76,5 @@ router.post('/', asyncHandler( async (req, res) => {
     }
 
 }));
+
+export default router;
