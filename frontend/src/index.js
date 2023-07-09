@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, createRoutesFromChildren, Route, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import store from './store';
 
 const router = createBrowserRouter(
   createRoutesFromChildren(
@@ -18,7 +20,9 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 
