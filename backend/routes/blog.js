@@ -6,10 +6,10 @@ const router = express.Router();
 // @desc    Get all blog posts
 // @route   GET /api/blog
 // @access  Public
-router.get("/", async (req, res) => {
+router.get("/", asyncHandler(async (req, res) => {
     const blogs = await Blog.find({});
     res.status(200).json(blogs);
-});
+}));
 
 // @desc    Create a blog post
 // @route   POST /api/blog
