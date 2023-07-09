@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import ConnectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/customerror.js';
 import blogRoutes from './routes/blog.js';
-import userRoutes from './routes/user.js';
+import userRoutes from './routes/auth.js';
 import cookieParser from 'cookie-parser';
 
 // Load env variables
@@ -26,18 +26,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // logging middleware
-var num = 0;
-app.use(function (req, res, next) {
-    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-    var method = req.method;
-    var url = req.url;
+// var num = 0;
+// app.use(function (req, res, next) {
+//     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+//     var method = req.method;
+//     var url = req.url;
 
-    console.log('\n- - - - - - - - - - - -\n'+(++num) + ". IP " + ip + " " + method + " " + url+'\n- - - - - - - - - - - -\n');
-    next();
-});
+//     console.log('\n- - - - - - - - - - - -\n'+(++num) + ". IP " + ip + " " + method + " " + url+'\n- - - - - - - - - - - -\n');
+//     next();
+// });
 
 app.use('/api/blog', blogRoutes);
-app.use('/api/user', userRoutes);
+app.use('/api/users', userRoutes);
 
 app.use('/', (req, res) => {
     res.send('Welcome to MERN Blog');
