@@ -7,7 +7,7 @@ const router = express.Router();
 // @route   GET /api/blog
 // @access  Public
 router.get("/", asyncHandler(async (req, res) => {
-    const blogs = await Blog.find({});
+    const blogs = await Blog.find({}).populate('user', 'name email');
     res.status(200).json(blogs);
 }));
 
