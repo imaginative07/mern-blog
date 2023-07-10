@@ -1,12 +1,11 @@
 import homeImg from "../assets/images/home-bg.jpg";
 import Loader from '../components/Loader';
-import Message from '../components/Message';
 import { Link } from "react-router-dom";
 import { useGetBlogPostsQuery } from "../slices/blogSlice";
 
 function Home() {
 
-    const { data, isLoading, error } = useGetBlogPostsQuery();
+    const { data, isLoading } = useGetBlogPostsQuery();
 
     console.log(data);
 
@@ -21,9 +20,9 @@ function Home() {
                     <div className="row gx-4 gx-lg-5 justify-content-center">
                         <div className="col-md-10 col-lg-8 col-xl-7">
                             <div className="page-heading">
-                                <h1>Clean Blog</h1>
+                                <h1>MernPress</h1>
                                 <span className="subheading">
-                                    A Blog Theme by Start Bootstrap
+                                    A MernPress blog for developers and designers.
                                 </span>
                             </div>
                         </div>
@@ -41,9 +40,9 @@ function Home() {
                           <div className="col-md-12" key={post._id}>
                             
                             <div className="post-preview">
-                                <Link to={`/blog/${post._id}`}>
+                                <Link to={`/blog/${post.slug}`}>
                                   <h2 className="post-title">
-                                      {post.slug}
+                                      {post.title}
                                   </h2>
                                 </Link>
 
@@ -53,7 +52,7 @@ function Home() {
 
                                 <p className="post-meta">
                                     Posted by&nbsp;
-                                    <Link to={`/users/${post.user.name}`}>{post.user.name}</Link> &nbsp;on {new Date(post.createdAt).toLocaleDateString()}
+                                    <Link to={`/users/${post.user.name}`}>{post.user.name}</Link>&nbsp;on {new Date(post.createdAt).toLocaleDateString()}&nbsp;| Read Time:&nbsp;{post.readtime}
                                 </p>
                             </div>
 
