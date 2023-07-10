@@ -11,3 +11,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+div.masthead {
+  margin-bottom: 50px;
+  background: no-repeat center center;
+  background-color: #6c757d;
+  background-attachment: scroll;
+  position: relative;
+  background-size: cover
+}
+
+div.masthead .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #212529;
+  opacity: 0.5
+}
+
+div.masthead .page-heading,div.masthead .post-heading,div.masthead .site-heading {
+  padding: 200px 0 150px;
+  color: white
+}
+
+div.masthead .page-heading, div.masthead .site-heading {
+  text-align: center;
+}
+
+div.masthead .page-heading h1, div.masthead .site-heading h1 {
+  font-size: 50px;
+  margin-top: 0;
+}
+
+div.masthead .page-heading .subheading, div.masthead .site-heading .subheading {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.1;
+  display: block;
+  margin: 10px 0 0;
+  font-family: "Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
