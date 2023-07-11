@@ -37,9 +37,11 @@ router.post("/", asyncHandler( async (req, res) => {
 // @desc    Get blog by id
 // @route   GET /api/blog/:id
 // @access  Public
-router.get('/:id', asyncHandler( async (req, res) => {
+router.get('/:slug', asyncHandler( async (req, res) => {
+
+    const { slug }  = req.params;
     
-    const blog = await Blog.findById(req.params.id).populate('user', 'name email');
+    const blog = await Blog.findOne({slug}).populate('user', 'name email');
 
     if(blog) {
         res.status(200).json(blog);
