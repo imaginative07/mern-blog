@@ -27,7 +27,7 @@ function PostPage() {
                                 <h1>{data.title}</h1>
                                 <span className="meta">
                                 Posted by
-                                <Link to={`/users/${data.user.name}`}>{data.user.name}</Link>
+                                <Link className="text-white" to={`/users/${data.user.name}`}> {data.user.name}</Link>
                                 &nbsp;on {new Date(data.createdAt).toLocaleDateString()}&nbsp;| Read Time:&nbsp;{data.readtime} Min
                             </span>
                             </div>
@@ -35,6 +35,16 @@ function PostPage() {
                     </div>
                 </div>
             </div>
+
+            <article class="mt-4 mb-4">
+                <div class="container px-4 px-lg-5 pt-3">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <p>{data.content}</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </>
         )}
         </>
