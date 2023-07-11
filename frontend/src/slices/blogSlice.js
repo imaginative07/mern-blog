@@ -9,7 +9,13 @@ export const blogApiSlice = apiSlice.injectEndpoints({
             }),
             keepUnusedDataFor: 5,
         }),
+        getBlogDetails: builder.query({
+            query: (id) => ({
+                url: `${BLOG_URL}/${id}`,
+            }),
+            keepUnusedDataFor: 5,
+        }),
     }),
 });
 
-export const { useGetBlogPostsQuery } = blogApiSlice;
+export const { useGetBlogPostsQuery, useGetBlogDetailsQuery } = blogApiSlice;

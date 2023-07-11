@@ -5,14 +5,17 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, createRoutesFromChildren, Route, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
+import PostPage from './pages/PostPage';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store';
+import './assets/styles/index.css';
 
 const router = createBrowserRouter(
   createRoutesFromChildren(
     <Route path="/" element={<App />}>
       <Route index={true} path='/' element={<Home />} />
+      <Route path='/blog/:id' element={<PostPage />} />
     </Route>
   )
 );
