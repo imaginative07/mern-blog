@@ -6,9 +6,7 @@ import { useGetBlogPostsQuery } from "../slices/blogSlice";
 function Home() {
 
     const { data, isLoading } = useGetBlogPostsQuery();
-
-    console.log(data);
-
+    
     return (
         <>
             <div
@@ -52,7 +50,7 @@ function Home() {
 
                                 <p className="post-meta">
                                     Posted by&nbsp;
-                                    <Link to={`/users/${post.user.name}`}>{post.user.name}</Link>&nbsp;on {new Date(post.createdAt).toLocaleDateString()}&nbsp;| Read Time:&nbsp;{post.readtime}
+                                    <Link to={`/users/${post.user.name}`}>{post.user.name}</Link>&nbsp;on {new Date(post.createdAt).toLocaleDateString()}&nbsp;| Read Time:&nbsp;{post.readtime} Min
                                 </p>
                             </div>
 
