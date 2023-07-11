@@ -1,5 +1,5 @@
 // import { LinkContainer } from "react-router-bootstrap";
-import { Navbar, Nav, Container, NavDropdown, Form, Button } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 
 function Header() {
     return (
@@ -8,8 +8,8 @@ function Header() {
                 <Container>
                     <Navbar.Brand href="/">Blog</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
+                    <Navbar.Collapse className="justify-content-end">
+                        <Nav>
                             <Nav.Link href="#home">Home</Nav.Link>
                             <Nav.Link href="#link">About</Nav.Link>
                             <NavDropdown
@@ -31,15 +31,6 @@ function Header() {
                                 </NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
-                        <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-success">Search</Button>
-                        </Form>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
