@@ -60,6 +60,8 @@ const blogSchema = mongoose.Schema({
         type: Number,
         default: 0,
     },
+},{
+    timestamps: true,
 });
 
 blogSchema.pre("save", function (next) {
